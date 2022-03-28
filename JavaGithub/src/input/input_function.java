@@ -6,10 +6,12 @@ public class input_function {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("Input the 1st number!");
-		int input1 = scan.nextInt();		//int이므로 nextInt로 받는다.
+		int input1 = scan.nextInt();		//int > nextInt
 		
 		System.out.println("Input the 2nd number!");
 		int input2 = scan.nextInt();
