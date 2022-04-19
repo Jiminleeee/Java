@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class P003 {
+	// 항목들을 static으로 받는다 > 이 클래스 안에서 자유롭게 사용할 수 있도록
 	static String[] k32_itemName = { "해피홈 SAFE365 핸드크림", "(G)LH원형유리화병 100cm", "상투과자E", "더블링 나일론 깡 롤러", "해피홈 SAFE 핸드워시",
 			"농심 신라면120g*5", "(대)국내산삼겹살찌개용", "오뚜기 진비빔면 156g*4", "GAP 죽장사과 4-6입/", "순 유기농 바나나(봉)", "피코크 탄두리 닭가슴살",
 			"(달콤)순살닭강정(g)", "DZ주니어양말3족C_BK", "DZ주니어양말3족D_WH", "프리미엄생연어초밥", "피코크 들깨미역국500g", "남양 맛있는우유GT 저지방",
@@ -24,21 +25,21 @@ public class P003 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int k32_itemCount = k32_itemName.length;
-		k32_TitlePrint();
-		k32_TimeStamp();
-		k32_HeaderPrint();
+		int k32_itemCount = k32_itemName.length;	// 정수형 변수를 선언하고 항목의 개수로 초기화 한다
+		k32_TitlePrint();	// titlePrint 함수 실행	> 맨 위 타이틀 출력
+		k32_TimeStamp();	// timeStamp 메소드 실행 > 시간 출력
+		k32_HeaderPrint();	// HeaderPrint 함수 실행 > 상품명, 단가, 수량, 금액의 헤더 출력
 		
-		for (int k32_i = 0 ; k32_i < k32_itemCount; k32_i++) {
-			k32_itemPrint(k32_i);
+		for (int k32_i = 0 ; k32_i < k32_itemCount; k32_i++) {	// 정수형 변수i가 0부터 항목의 개수 -1 만큼 1씩 증가하며 반복 (for문)
+			k32_itemPrint(k32_i);	// itemPrint 함수 실행 > 항목 출력
 		}
 		
-		k32_totalPrint();
+		k32_totalPrint();	// totalPrint 함수 실행 > 계산 부분 및 아래 나머지 출력
 		
 		
 	}
 	
-	public static void k32_TitlePrint() {
+	public static void k32_TitlePrint() { // 영수증 맨 위 타이틀을 출력하는 메소드
 		System.out.println("           이마트 죽전점 (031)888-1234");
 		System.out.println("   emart   206-86-50913 강희석");
 		System.out.println("           용인 수지구 포은대로 552");
@@ -50,13 +51,13 @@ public class P003 {
 		System.out.println();
 	}
 	
-	public static void k32_TimeStamp() {
+	public static void k32_TimeStamp() {	// 현재 시간을 출력하는 메소드
 		Calendar k32_calt = Calendar.getInstance();	// Calendar 클래스로 현재 시간을 가져옴
 		SimpleDateFormat k32_sdt = new SimpleDateFormat("YYYY-MM-dd HH:mm");	// SimpleDateFormat 클래스로 출력 형식 지정 
 		System.out.printf("[구매]%9s      POS:0011-9861\n", k32_sdt.format(k32_calt.getTime()));	
 	}
 	
-	public static void k32_HeaderPrint() {
+	public static void k32_HeaderPrint() {	//상품명, 단가, 수량, 금액 출력하는 함수
 		System.out.println("-----------------------------------------");
 		System.out.printf("%7s%14s%5s%5s\n" , "상 품 명", "단 가", "수량", "금 액");
 		System.out.println("-----------------------------------------");
@@ -82,9 +83,8 @@ public class P003 {
 		return k32_subStr.toString();	// 리턴값 : subStr (문자열로 형 변
 	}
 	
-	public static void k32_itemPrint(int k32_i) {
+	public static void k32_itemPrint(int k32_i) {	// 항목을 출력하는 함수 선언
 		DecimalFormat k32_df = new DecimalFormat("###,###,###,###,###");	// DecimalFormat 클래스 가져오기, 형태 지정하기
-		for (k32_i = 0; k32_i < k32_itemName.length; k32_i++) {	// 정수형 변수 i가 0부터 제품의 개수-1 만큼 1씩 증가하며 반복 (for문)
 			if (k32_taxFree[k32_i] == true) {	// 비과세 여부가 true 라면
 				System.out.printf("%-2s", "*");	// 항목 앞에 * 출력
 			} else {	// false라면
@@ -92,14 +92,13 @@ public class P003 {
 			}
 			System.out.printf("%s%10s%4d%10s\n", k32_subStrByte(k32_itemName[k32_i], 15),
 				k32_df.format(k32_price[k32_i]), k32_num[k32_i],
-				k32_df.format(k32_price[k32_i] * k32_num[k32_i]));	// 제품명은 함수를 사용해 20바이트로 자르고, 단가, 수량, 금액은 형식에 맞게 출력
+				k32_df.format(k32_price[k32_i] * k32_num[k32_i]));	// 제품명은 함수를 사용해 15바이트로 자르고, 단가, 수량, 금액은 형식에 맞게 출력
 						
 			if ((k32_i + 1) % 5 == 0) {	// 정수형 변수 i+1을 5로 나눈 나머지가 0이라면 (5개 마다) 
 				System.out.println("-----------------------------------------");	// 구분선 출력
 			} 
 		}
-	}
-
+	
 	public static int k32_netPrice(int k32_totalSum, int k32_taxFreeTotal, double k32_taxRate) {	//세전 가격을 구하는 함수 선언(매개변수 3개 > 정수형 총 합계 및 면세물품 총합, 실수형 세율)
 		return (int) ((k32_totalSum - k32_taxFreeTotal) / (1 + k32_taxRate));	// 리턴값 : (총합-면세물품 총합) / (1+세율) > 세금은 무조건 올림
 
@@ -114,15 +113,15 @@ public class P003 {
 		return k32_parkingTime;	//리턴값 : parkingTime
 	}
 	
-	public static int k32_thisPoint(int k32_totalSum) {
-		return (int) (k32_totalSum * 0.001);
+	public static int k32_thisPoint(int k32_totalSum) {	// 금회 발생 포인트 구하는 함수 선언
+		return (int) (k32_totalSum * 0.001);	// 리턴값 : 정수 
 	}
 	
-	public static int k32_totalPoint (int k32_totalSum) {
-		return (int) (k32_totalSum * 0.001) + 5473;
+	public static int k32_totalPoint (int k32_totalSum) {	// 누적 포인트 구하는 메소드 선언
+		return (int) (k32_totalSum * 0.001) + 5473;	// 리턴값 : 정수
 	}
 
-	public static void k32_totalPrint() {
+	public static void k32_totalPrint() {	// 계산 부분 및 나머지 부분 출력하는 메소드 선언
 		DecimalFormat k32_df = new DecimalFormat("###,###,###,###,###");	// DecimalFormat 클래스 가져오기, 형태 지정하기
 		for (int k32_i = 0; k32_i < k32_itemName.length; k32_i++) {	// 정수형 변수 i가 0부터 제품의 개수-1 만큼 1씩 증가하며 반복 (for문)
 			if (k32_taxFree[k32_i] == true) {	// 비과세 여부가 true 라면
