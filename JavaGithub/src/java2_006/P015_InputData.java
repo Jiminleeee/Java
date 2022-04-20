@@ -51,6 +51,11 @@ public class P015_InputData {
 		for (int k32_i = 0; k32_i < k32_personGroupArray.length ; k32_i++) {	// 페이지당 인원 수 크기만큼 반복 (for문)
 			if (k32_i == k32_personGroupArray.length - 1 ) {	// 마지막장이라면, 
 				k32_personGroupArray[k32_i] = k32_totalPerson % k32_pgPerson;	//페이지당 인원으로 나눈 나머지를 입력(20)
+			if (k32_totalPerson == k32_pgPerson) {
+				k32_personGroupArray[k32_i] = k32_pgPerson;
+			} else {
+				k32_personGroupArray[k32_i] = k32_totalPerson % k32_pgPerson;
+			}
 			} else {	//마지막장이 아니라면 
 				k32_personGroupArray[k32_i] = k32_pgPerson;	//페이지당 인원수를 입력
 			}

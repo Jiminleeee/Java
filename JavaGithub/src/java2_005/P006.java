@@ -49,9 +49,9 @@ public class P006 {
 			} else {	// false라면
 				System.out.printf("%-2s", " ");	// 빈칸
 			}
-			System.out.printf("%s%10s%4d%10s\n", k32_subStrByte(k32_itemName[k32_i], 15),
-				k32_df.format(k32_price[k32_i]), k32_num[k32_i],
-				k32_df.format(k32_price[k32_i] * k32_num[k32_i]));	// 제품명은 함수를 사용해 20바이트로 자르고, 단가, 수량, 금액은 형식에 맞게 출력
+			System.out.printf("%s%10s%4s%10s\n", k32_subStrByte(k32_itemName[k32_i], 15),
+				k32_df.format(k32_price[k32_i]), k32_df.format(k32_num[k32_i]),
+				k32_df.format(k32_price[k32_i] * k32_num[k32_i]));	// 제품명은 함수를 사용해 15바이트로 자르고, 단가, 수량, 금액은 형식에 맞게 출력
 						
 			if ((k32_i + 1) % 5 == 0) {	// 정수형 변수 i+1을 5로 나눈 나머지가 0이라면 (5개 마다) 
 				System.out.println("-----------------------------------------");	// 구분선 출력
