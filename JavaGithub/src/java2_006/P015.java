@@ -4,7 +4,7 @@ public class P015 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int k32_iPerson = 200;		// 총 인원수 입력, 정수형, 200명
+		int k32_iPerson = 60;		// 총 인원수 입력, 정수형, 200명
 		int k32_onePagePerson = 30;	// 한페이지당 보여줄 인원수 입력, 정수형, 30명
 		//생성자, k32_iPerson, k32_onepagePerson를 변수로 받는 메소드 선언, k32_inData로 사용
 		P015_InputData k32_inData = new P015_InputData(k32_iPerson, k32_onePagePerson);
