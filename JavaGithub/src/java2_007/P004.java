@@ -4,6 +4,7 @@ public class P004 {
 // 구분자된 필드 추출 처리 2
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		// 숫자 있는 데이터 내용 문자열 배열로 선언
 		String[] k32_OneRec = { "연월,이용객 수", "2016-01,103462", "2016-02,109914", "2016-03,112204", "2016-04,128351",
 				"2016-05,224462", "2016-06,196737", "2016-07,246683", "2016-08,205932", "2016-09,143336",
 				"2016-10,153767", "2016-11,105085", "2016-12,88442", "2017-01,131520", "2017-02,139372",
@@ -20,52 +21,48 @@ public class P004 {
 		String[] k32_units = { "영", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구" }; // 문자열 배열 units 선언 및 초기화
 		String[] k32_unitX = { "", "십", "백", "천", "만", "십", "백", "천", "억", "십" }; // 문자열 배열 unitX 선언 및 초기화
 
-		String k32_numberKorean = "";
-		int k32_k, k32_l, k32_m;
+		String k32_numberKorean = "";	// 숫자를 한글로 읽기 문자열 선언 및 초기화
+		int k32_k, k32_l, k32_m;	// 정수형 변수 k, l, m 선언 
 
-		String[] k32_fieldName = k32_OneRec[0].split(",");
-		for (int k32_i = 1; k32_i < k32_OneRec.length - 1; k32_i++) {
-			String[] k32_field = k32_OneRec[k32_i].split(",");
+		String[] k32_fieldName = k32_OneRec[0].split(",");	// 필드명 문자열 배열로 선언 > ',' 기준으로 나누기
+		for (int k32_i = 1; k32_i < k32_OneRec.length - 1; k32_i++) {	// 데이터 내용 배열의 개수 -1 만큼 1씩 증가하며 반복 (for문)
+			String[] k32_field = k32_OneRec[k32_i].split(",");	// 필드 내용 문자열 배열로 선언 > ',' 기준으로 나누기
 			System.out.println("***********************************************************");
-			System.out.printf(" %s : %s\n", k32_fieldName[0], k32_field[0]);
-			for (int k32_j = 0; k32_j < k32_fieldName.length; k32_j++) {
-				if (k32_j == 1) {
+			System.out.printf(" %s : %s\n", k32_fieldName[0], k32_field[0]);	// 필드명 출력
+			for (int k32_j = 0; k32_j < k32_fieldName.length; k32_j++) {	// 필드명의 개수만큼 1씩 증가하며 반복 (for문)
+				if (k32_j == 1) {	// 변수가 1일 때, 
 
-					String k32_number = k32_field[k32_j];
+					String k32_number = k32_field[k32_j];	// 필드내용을 문자열 숫자로 선언
 
-					k32_k = 0;
-					k32_l = k32_number.length() - 1;
+					k32_k = 0;	// 정수형 변수 k 0으로 초기화 
+					k32_l = k32_number.length() - 1;	// 정수형 변수 l을 문자열 숫자 길이 -1 로 초기화
 
-					while (true) {
-						if (k32_k >= k32_number.length()) {
-							break;
+					while (true) {	// 무한 루프 선언
+						if (k32_k >= k32_number.length()) {	// 변수가 숫자 길이 보다 크거나 같으면 
+							break;	// break;
 						}
-						if (k32_number.length() < 5) {
-							k32_numberKorean = k32_numberKorean
+						if (k32_number.length() < 5) {	// 숫자 길이가 5보다 작으면
+							k32_numberKorean = k32_numberKorean	
 									+ k32_units[Integer.parseInt(k32_number.substring(k32_k, k32_k + 1))]
-									+ k32_unitX[k32_l];
+									+ k32_unitX[k32_l];	// 숫자를 그대로 읽는다 > 문자열 배열 units와 unitX활용
 						}
-						if (k32_number.substring(k32_k, k32_k + 1).equals("0")) {
-							if (k32_unitX[k32_l].equals("만") || k32_unitX[k32_l].equals("억")) {
-								k32_numberKorean = k32_numberKorean + "" + k32_unitX[k32_l];
+						if (k32_number.substring(k32_k, k32_k + 1).equals("0")) {	// 숫자가 0일 때
+							if (k32_unitX[k32_l].equals("만") || k32_unitX[k32_l].equals("억")) {	// 그 자리가 만 이나 억이라면
+								k32_numberKorean = k32_numberKorean + "" + k32_unitX[k32_l];	// 단위를 출력하지 않는다
 							}
-						} else {
+						} else {	// 숫자가 0이 아니라면 
 							k32_numberKorean = k32_numberKorean
 									+ k32_units[Integer.parseInt(k32_number.substring(k32_k, k32_k + 1))]
-									+ k32_unitX[k32_l];
+									+ k32_unitX[k32_l];	// 숫자를 그대로 읽는다
 						}
-						k32_k++;
-						k32_l--;
+						k32_k++;	// k 1 증가
+						k32_l--;	// l 1 감소
 
 					}
-
-					System.out.printf(" %s : %s\n", k32_fieldName[1], k32_numberKorean);
-					k32_numberKorean = "";
-
+					System.out.printf(" %s : %s\n", k32_fieldName[1], k32_numberKorean);	// 형태에 맞게 출력
+					k32_numberKorean = "";	// 한글로 숫자를 읽는 것 초기화 
 				}
-
 			}
-
 		}
 		System.out.println("***********************************************************");
 	}

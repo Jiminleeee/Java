@@ -6,6 +6,7 @@ public class P001 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		// 형식에 맞게 출력하기
 		System.out.printf("HanBlankForeword[%s]\n", k32_HanBlankForeword("한글abcd", 15));
 		System.out.printf("HanBlankForeword[%s]\n", k32_HanBlankForeword("한글한글aa", 15));
 		System.out.printf("HanBlankBackword[%s]\n", k32_HanBlankBackword("한글aa", 15));

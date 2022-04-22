@@ -68,12 +68,12 @@ public class P009 {
 		System.out.printf("  반평균합계 %d	반평균 : %6.2f\n",k32_sumavg, k32_sumavg/(double)k32_ArrayOneRec.size());
 	}
 	
-	public static void k32_dataSort() {
+	public static void k32_dataSort() {	// 데이터 정렬 함수
 		Comparator<P009_OneRec> k32_bikyeokijun = new Comparator<P009_OneRec>() {
-			public int compare(P009_OneRec a1, P009_OneRec a2) {
-				return ( a2.k32_getSum() - a1.k32_getSum());
+			public int compare(P009_OneRec a1, P009_OneRec a2) {	// 정수 비교 하기
+				return ( a2.k32_getSum() - a1.k32_getSum());	// 합계의 차를 비교값 리턴
 			}
 		};
-		Collections.sort(k32_ArrayOneRec, k32_bikyeokijun);
+		Collections.sort(k32_ArrayOneRec, k32_bikyeokijun);	// 설정한 대로 내용 정렬 (sort)
 	}
 }

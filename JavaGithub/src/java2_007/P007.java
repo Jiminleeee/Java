@@ -17,37 +17,37 @@ public class P007 {
 		k32_iAL.add("12rk34");
 		
 		System.out.printf("*******************************************\n");
-		System.out.printf(" 시작 ArraySize %d \n", k32_iAL.size());
-		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {
-			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));
+		System.out.printf(" 시작 ArraySize %d \n", k32_iAL.size());	// 배열의 사이즈를 출력
+		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {	// 배열의 사이즈만큼 1씩 증가하면서 반복 (for문)
+			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));	// 배열의 내용을 출력
 		}
 		
-		k32_iAL.set(3, "가라라라");
+		k32_iAL.set(3, "가라라라");	// 3번째 배열의 내용을 변경
 		System.out.printf("*******************************************\n");
-		System.out.printf(" 내용변경 ArraySize %d \n", k32_iAL.size());
-		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {
-			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));
+		System.out.printf(" 내용변경 ArraySize %d \n", k32_iAL.size());	// 배열의 사이즈를 출력
+		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {	// 배열의 사이즈만큼 1씩 증가하면서 반복 (for문)
+			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));	// 배열의 내용을 출력
 		}
 		
-		k32_iAL.remove(4);
+		k32_iAL.remove(4);	// 4번째 배열을 삭제
 		System.out.printf("*******************************************\n");
-		System.out.printf(" 내용변경 ArraySize %d \n", k32_iAL.size());
-		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {
-			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));
+		System.out.printf(" 내용변경 ArraySize %d \n", k32_iAL.size());	// 배열의 사이즈를 출력
+		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {	// 배열의 사이즈만큼 1씩 증가하면서 반복 (for문)
+			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));	// 배열의 내용을 출력
 		}
 		
-		k32_iAL.sort(null);
+		k32_iAL.sort(null);	// 배열을 정렬
 		System.out.printf("*******************************************\n");
-		System.out.printf(" 리스트Sort ArraySize %d \n", k32_iAL.size());
-		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {
-			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));
+		System.out.printf(" 리스트Sort ArraySize %d \n", k32_iAL.size());	// 배열의 사이즈를 출력
+		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {	// 배열의 사이즈만큼 1씩 증가하면서 반복 (for문)
+			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));	// 배열의 내용을 출력
 		}
 		
-		k32_iAL.clear();
+		k32_iAL.clear();	// 배열을 전부 삭제
 		System.out.printf("*******************************************\n");
-		System.out.printf(" 전부 삭제 ArraySize %d \n", k32_iAL.size());
-		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {
-			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));
+		System.out.printf(" 전부 삭제 ArraySize %d \n", k32_iAL.size());	// 배열의 사이즈를 출력
+		for (int k32_i = 0; k32_i < k32_iAL.size(); k32_i++) {	// 배열의 사이즈만큼 1씩 증가하면서 반복 (for문)
+			System.out.printf(" ArrayList %d = %s\n", k32_i, k32_iAL.get(k32_i));	// 배열의 내용을 출력
 		}
 		
 		

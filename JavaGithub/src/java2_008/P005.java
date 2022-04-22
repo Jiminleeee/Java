@@ -10,7 +10,7 @@ public class P005 {
 //거리계산(최소, 최대) / 20220421 /  k32_이지민 / 주석에는 k32_생략
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		File k32_f = new File("C:\\Users\\501-21\\Desktop\\kopo32\\Java\\심화\\과제_심화\\8강\\12_04_07_E_무료와이파이정보_서울.txt"); // 파일 불러오기																									
+		File k32_f = new File("C:\\Users\\501-21\\Desktop\\kopo32\\Java\\심화\\과제_심화\\8강\\12_04_07_E_무료와이파이정보_경기도_탭.txt"); // 파일 불러오기																									
 		BufferedReader k32_br = new BufferedReader(new FileReader(k32_f)); // 파일 읽기
 
 		String k32_readtxt; // 문자열 변수 (파일 읽은 내용) 선언
@@ -31,6 +31,8 @@ public class P005 {
 		double k32_distanceMin = 0;	// 실수형 변수 최소 거리 선언하고 0으로 초기화
 		int k32_LineCountCheckMax = 0;	// 최대가 몇번째인지 확인하는 정수형 변수 선언하고 0으로 초기화
 		int k32_LineCountCheckMin = 0;	// 최소가 몇번째인지 확인하는 정수형 변수 선언하고 0으로 초기화
+		String k32_maxSpot = "";
+		String k32_minSpot = "";
 		
 		while ((k32_readtxt = k32_br.readLine()) != null) {	// 파일에 내용이 존재하면 (null이 아니면)
 			String[] k32_field = k32_readtxt.split("\t");	// 문자열 배열 필드 내용을 선언하고 읽은 내용을 빈칸 단위로 자른다
@@ -43,14 +45,19 @@ public class P005 {
 				k32_distanceMin = k32_distance;	// 최소거리에 거리 대입
 				k32_LineCountCheckMax = k32_LineCount;	// 최대라인확인에 현재 라인 대입
 				k32_LineCountCheckMin = k32_LineCount;	// 최소라인 확인에 현재 라인 대입
+				k32_maxSpot = k32_field[1];
+				k32_minSpot = k32_field[1];
 				
-			} else if (k32_LineCount < 100){	// 100번째 줄까지 (데이터가 뒤죽박죽이므로 계산이 맞는지 확인하기 위해 범위 설정)
+			} else {	// 데이터가 더이상 없을 때까지
 				if (k32_distance > k32_distanceMax) {	// 거리가 최대거리보다 크다면
 					k32_distanceMax = k32_distance;	// 최대거리에 거리를 대입
 					k32_LineCountCheckMax = k32_LineCount;	// 최대 라인 확인에 현재 라인 대입
-				} else if (k32_distance < k32_distanceMin) {	// 거리가 최소거리 보다 작다면
+					k32_maxSpot = k32_field[1];
+				}
+				if (k32_distance < k32_distanceMin) {	// 거리가 최소거리 보다 작다면
 					k32_distanceMin = k32_distance;	// 최소거리에 거리를 대입
 					k32_LineCountCheckMin = k32_LineCount;	// 최소 라인 확인에 현재 라인 대입
+					k32_minSpot = k32_field[1];
 				}
 			}
 						
@@ -58,8 +65,8 @@ public class P005 {
 					
 		}
 		
-		System.out.printf(" 최대 : [%d번째 항목] : %f\n", k32_LineCountCheckMax, k32_distanceMax);	// 형태에 맞게 최대 거리 출력
-		System.out.printf(" 최소 : [%d번째 항목] : %f\n", k32_LineCountCheckMin, k32_distanceMin);	// 형태에 맞게 최소 거리 출력
+		System.out.printf(" 최대 : [%d번째 항목] - %s : %f\n", k32_LineCountCheckMax, k32_maxSpot, k32_distanceMax);	// 형태에 맞게 최대 거리 출력
+		System.out.printf(" 최소 : [%d번째 항목] - %s : %f\n", k32_LineCountCheckMin, k32_minSpot, k32_distanceMin);	// 형태에 맞게 최소 거리 출력
 		System.out.println("**********************************************");
 		
 		k32_br.close();	// 파일을 닫는다

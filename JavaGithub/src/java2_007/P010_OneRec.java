@@ -2,18 +2,14 @@ package java2_007;
 
 public class P010_OneRec {
 	
-	private int k32_totalPerson;	// 총 인원수 정수형 변수 선언
-	private int k32_pgPerson;	// 페이지 당 인원 수 정수형 변수 선언
 	private int  k32_student_id;	// 정수형 배열 사람 번호 선언
 	private String k32_name;	// 문자열 배열 사람 이름 선언
 	private int k32_kor;	// 정수형 배열 국어 성적 선언
 	private int k32_eng;	// 정수형 배열 영어 성적 선언
 	private int k32_math;	// 정수형 배열 수학 성적 선언
-	private int k32_personGroupArray;	// 정수형 배열 페이지 당 인원 수 
 	
-	public P010_OneRec(int totalPerson, int pgPerson, int student_id, String name, int kor, int eng, int math) {	// 생성자 만들기 (변수 4개 > 이름, 국어, 영어, 수학 성적)
-		this.k32_totalPerson = totalPerson;
-		this.k32_pgPerson = pgPerson;
+	
+	public P010_OneRec(int student_id, String name, int kor, int eng, int math) {	// 생성자 만들기 (변수 4개 > 이름, 국어, 영어, 수학 성적)
 		this.k32_student_id = student_id;
 		this.k32_name = name;	// 위에서 선언한 이름을 생성자로 받아온다
 		this.k32_kor = kor;		// 위에서 선언한 국어 점수를 생성자로 받아온다
