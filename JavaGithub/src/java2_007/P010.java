@@ -35,8 +35,8 @@ public class P010 {
 		k32_dataSort();	// 데이터 정렬 함수 
 		for (int k32_i = 0; k32_i < k32_totalPg; k32_i++) {	// 전체 페이지 수만큼 1씩 증가하며 반복
 			k32_Header(k32_i);	// 헤더 부분 함수 
-			
-			for (int k32_j = 0; k32_j < k32_currentPgPerson; k32_j ++) {	// 현재 페이지 사람 수 만큼 1씩 증가하며 반복
+			for (int k32_j
+					= 0; k32_j < k32_currentPgPerson; k32_j ++) {	// 현재 페이지 사람 수 만큼 1씩 증가하며 반복
 				k32_ItemPrint(k32_j);	// 내용 함수 
 			}	
 			k32_TailPrint();	// 마지막 부분 함수 
@@ -93,7 +93,8 @@ public class P010 {
 	public static void k32_ItemPrint(int k32_i) {	// 내용 함수 
 		P009_OneRec k32_rec;	// 클래스 불러오기 
 		
-		k32_rec = k32_ArrayOneRec.get(k32_i);	// 변수 불러오기
+		k32_rec = k32_ArrayOneRec.get(k32_count
+				);	// 변수 불러오기
 		System.out.printf("%03d %5.5s  %3d     %3d    %3d    %3d    %.2f\n", 	// 형태에 맞게 출력
 				k32_rec.k32_getStudent_id(), k32_rec.k32_getName(), k32_rec.k32_getKor(),
 				k32_rec.k32_getEng(), k32_rec.k32_getMath(), k32_rec.k32_getSum(), k32_rec.k32_getAvg());
